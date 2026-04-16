@@ -39,6 +39,10 @@ body.nav-open {
   overflow: hidden;
 }
 
+body.lifecycle-open {
+  overflow: hidden;
+}
+
 img,
 svg {
   display: block;
@@ -286,6 +290,20 @@ h3 {
   font-size: 1.08rem;
 }
 
+.target-role {
+  max-width: 620px;
+  margin: 1rem 0 0;
+  padding: 0.85rem 1rem;
+  color: var(--text);
+  background: rgba(255, 209, 102, 0.09);
+  border: 1px solid rgba(255, 209, 102, 0.28);
+  border-radius: var(--radius);
+}
+
+.target-role strong {
+  color: var(--accent-warm);
+}
+
 .hero-portrait {
   position: absolute;
   right: 0;
@@ -461,6 +479,7 @@ h3 {
 
 .skill-card,
 .project-card,
+.credential-card,
 .roadmap-list article {
   position: relative;
   min-width: 0;
@@ -477,6 +496,7 @@ h3 {
 
 .skill-card::before,
 .project-card::before,
+.credential-card::before,
 .roadmap-list article::before {
   content: "";
   position: absolute;
@@ -492,6 +512,72 @@ h3 {
   min-height: 70px;
   margin: 0.75rem 0 1rem;
   color: var(--muted);
+}
+
+.credentials-section {
+  background:
+    linear-gradient(90deg, rgba(255, 113, 91, 0.08), transparent 50%),
+    var(--bg);
+}
+
+.credential-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.credential-card {
+  min-height: 250px;
+  padding: 1.15rem;
+}
+
+.credential-card:nth-child(1) {
+  --card-accent: var(--accent);
+}
+
+.credential-card:nth-child(2) {
+  --card-accent: var(--accent-warm);
+}
+
+.credential-card:nth-child(3) {
+  --card-accent: var(--accent-coral);
+}
+
+.credential-card:nth-child(4) {
+  --card-accent: var(--accent);
+}
+
+.credential-card span {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  padding: 0.32rem 0.55rem;
+  color: var(--accent-warm);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: var(--radius);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.credential-card h3 {
+  margin-top: 1rem;
+}
+
+.credential-card p {
+  color: var(--muted);
+}
+
+.credential-card a {
+  display: inline-flex;
+  margin-top: 0.4rem;
+  color: var(--accent);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.credential-card a:hover {
+  color: var(--accent-warm);
 }
 
 .pill-list,
@@ -594,6 +680,51 @@ h3 {
   margin: 0.9rem 0 1rem;
 }
 
+.project-preview {
+  display: grid;
+  gap: 0.75rem;
+  min-height: 142px;
+  margin-top: 1rem;
+  padding: 1rem;
+  background:
+    linear-gradient(135deg, rgba(72, 224, 142, 0.12), rgba(255, 209, 102, 0.06)),
+    rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+}
+
+.project-preview-title {
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.project-preview-list {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.project-preview-list li {
+  position: relative;
+  min-height: 26px;
+  padding-left: 1rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.project-preview-list li::before {
+  content: "";
+  position: absolute;
+  top: 0.65rem;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--card-accent, var(--accent));
+  border-radius: 50%;
+}
+
 .project-stack {
   margin-top: auto;
 }
@@ -611,8 +742,10 @@ h3 {
   min-height: 38px;
   padding: 0.48rem 0.7rem;
   color: var(--text);
+  background: transparent;
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  cursor: pointer;
   text-decoration: none;
   font-weight: 900;
 }
@@ -620,6 +753,131 @@ h3 {
 .project-link:hover {
   border-color: var(--accent);
   background: rgba(72, 224, 142, 0.08);
+}
+
+.lifecycle-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.lifecycle-modal[hidden] {
+  display: none;
+}
+
+.lifecycle-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.lifecycle-panel {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 100%);
+  max-height: min(760px, calc(100svh - 2rem));
+  overflow: auto;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.lifecycle-panel h3 {
+  font-size: 2rem;
+}
+
+.lifecycle-panel > p:not(.section-kicker) {
+  color: var(--muted);
+}
+
+.lifecycle-evidence-wrap {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 209, 102, 0.08);
+  border: 1px solid rgba(255, 209, 102, 0.18);
+  border-radius: var(--radius);
+}
+
+.lifecycle-evidence-wrap > strong {
+  display: block;
+  color: var(--accent-warm);
+}
+
+.lifecycle-evidence {
+  display: grid;
+  gap: 0.45rem;
+  padding-left: 1.1rem;
+  margin: 0.65rem 0 0;
+  color: var(--muted);
+}
+
+.lifecycle-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  min-height: 36px;
+  padding: 0.35rem 0.6rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.lifecycle-close:hover {
+  border-color: var(--accent-warm);
+  background: rgba(255, 209, 102, 0.1);
+}
+
+.lifecycle-steps {
+  display: grid;
+  gap: 0.85rem;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  list-style: none;
+  counter-reset: lifecycle;
+}
+
+.lifecycle-step {
+  position: relative;
+  min-height: 104px;
+  padding: 1rem 1rem 1rem 4.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  counter-increment: lifecycle;
+}
+
+.lifecycle-step::before {
+  content: counter(lifecycle);
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  color: #071108;
+  background: var(--accent);
+  border-radius: var(--radius);
+  font-weight: 900;
+}
+
+.lifecycle-step strong {
+  display: block;
+  color: var(--text);
+}
+
+.lifecycle-step p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
 }
 
 .roadmap-section {
@@ -779,6 +1037,7 @@ h3 {
   }
 
   .skill-grid,
+  .credential-grid,
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -812,14 +1071,30 @@ h3 {
 
   .hero-proof,
   .skill-grid,
+  .credential-grid,
   .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-preview,
+  .credential-card {
+    min-height: auto;
   }
 
   .project-card,
   .project-card.featured {
     grid-column: auto;
     min-height: auto;
+  }
+
+  .lifecycle-panel h3 {
+    padding-right: 4.5rem;
+    font-size: 1.45rem;
+  }
+
+  .lifecycle-step {
+    padding-left: 1rem;
+    padding-top: 4.2rem;
   }
 
   .btn,

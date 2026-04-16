@@ -33,6 +33,7 @@
         <ul id="primary-navigation" class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
+          <li><a href="#certifications">Certifications</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#roadmap">Roadmap</a></li>
@@ -48,9 +49,12 @@
           security operations, and hands-on SOC lab work with Microsoft
           Sentinel across Kali Linux, Windows, and Ubuntu environments.
         </p>
+        <p class="target-role">
+          <strong>Target role:</strong> Junior SOC Analyst or Security Engineer for teams that value practical monitoring, clear documentation, and secure systems thinking.
+        </p>
         <figure class="hero-portrait">
           <img
-            src="https://media.licdn.com/dms/image/v2/D4E03AQFjgZ4IeLnuZg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729910795343?e=1778112000&v=beta&t=EUbmACIR0LuIlmW5Hc86y33cETuSMVN2fBHn9mXXePI"
+            src="assets/profile-apongpoh-gilbert.jpg"
             alt="Portrait of Apongpoh Gilbert"
           />
           <figcaption>
@@ -114,6 +118,46 @@
         </div>
       </section>
 
+      <section id="certifications" class="section credentials-section">
+        <div class="container">
+          <div class="section-heading narrow">
+            <p class="section-kicker">Certifications</p>
+            <h2>Proof points, current preparation, and placeholders for credential links.</h2>
+            <p>
+              Add verification URLs or badge links as they become available.
+              The portfolio keeps the evidence visible even while details are
+              still being collected.
+            </p>
+          </div>
+          <div class="credential-grid" aria-label="Certifications and learning milestones">
+            <article class="credential-card" data-animate>
+              <span>Certified</span>
+              <h3>CompTIA Security+</h3>
+              <p>Security foundations across threats, architecture, operations, identity, risk, and incident response.</p>
+              <a href="#contact">Credential link placeholder</a>
+            </article>
+            <article class="credential-card" data-animate>
+              <span>In Progress</span>
+              <h3>CompTIA CySA+</h3>
+              <p>SOC analysis, threat detection, vulnerability management, log review, and response workflows.</p>
+              <a href="#contact">Exam timeline placeholder</a>
+            </article>
+            <article class="credential-card" data-animate>
+              <span>Placeholder</span>
+              <h3>Full-Stack Development Credential</h3>
+              <p>Add the certificate name, provider, issue date, and verification link when the details are ready.</p>
+              <a href="#contact">Certificate placeholder</a>
+            </article>
+            <article class="credential-card" data-animate>
+              <span>Evidence</span>
+              <h3>SOC Lab Portfolio Artifacts</h3>
+              <p>Reserved for Sentinel screenshots, sample KQL queries, alert notes, and incident report examples.</p>
+              <a href="#projects">View project lifecycle</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="experience" class="section">
         <div class="container split-layout">
           <div class="section-heading sticky-heading">
@@ -171,11 +215,42 @@
             <p class="section-kicker">Featured Projects</p>
             <h2>Project cards built around impact, not just technology.</h2>
             <p>
-              A focused look at portfolio work, secure API thinking, and
-              blue-team practice.
+              SOC practice comes first, followed by non-commercial web apps
+              built to explore secure product workflows, full-stack systems,
+              and project lifecycle decisions. Screenshots, demos, and case
+              study links are marked as placeholders where final assets are not
+              available yet.
             </p>
           </div>
           <div id="project-list" class="project-grid" aria-live="polite"></div>
+          <section
+            id="project-lifecycle"
+            class="lifecycle-modal"
+            aria-labelledby="lifecycle-title"
+            aria-modal="true"
+            role="dialog"
+            hidden
+          >
+            <div class="lifecycle-backdrop" data-close-lifecycle></div>
+            <article class="lifecycle-panel">
+              <button
+                class="lifecycle-close"
+                type="button"
+                aria-label="Close project lifecycle"
+                data-close-lifecycle
+              >
+                Close
+              </button>
+              <p class="section-kicker">Project Lifecycle</p>
+              <h3 id="lifecycle-title"></h3>
+              <p id="lifecycle-summary"></p>
+              <div class="lifecycle-evidence-wrap">
+                <strong>Evidence to add</strong>
+                <ul id="lifecycle-evidence" class="lifecycle-evidence"></ul>
+              </div>
+              <ol id="lifecycle-steps" class="lifecycle-steps"></ol>
+            </article>
+          </section>
         </div>
       </section>
 
@@ -230,10 +305,6 @@
 
     <footer class="footer">
       <p>&copy; <span id="year"></span> Apongpoh Gilbert. Built with security and purpose.</p>
-      <p class="credit">
-        Background photo by
-        <a href="https://unsplash.com/photos/a-person-typing-on-a-laptop-in-the-dark-6tG4sQx0dh4" target="_blank" rel="noreferrer">Mohammad Rahmani</a>.
-      </p>
     </footer>
 
     <script src="script.js"></script>
