@@ -182,7 +182,7 @@ select {
   gap: 0.75rem;
   width: min(var(--max-width), calc(100% - 40px));
   min-height: 76px;
-  padding: 0.8rem 0;
+  padding: 0.8rem clamp(0.75rem, 2vw, 1.1rem);
   transform: translateX(-50%);
 }
 
@@ -1103,7 +1103,7 @@ h3 {
 
   .nav-links {
     position: fixed;
-    inset: 76px 16px auto;
+    inset: 76px 24px auto;
     z-index: 1001;
     display: grid;
     gap: 0.35rem;
