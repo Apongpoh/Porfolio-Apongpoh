@@ -3,18 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apongpoh | Cybersecurity & Full-Stack Developer</title>
+    <title>Apongpoh Gilbert | Cybersecurity & Full-Stack Developer</title>
     <meta
       name="description"
-      content="Professional portfolio of a self-taught full-stack developer and cybersecurity professional."
+      content="Portfolio of Apongpoh Gilbert, a Security+ certified IT and cybersecurity professional focused on SOC analysis, secure development, and security operations."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="hero">
-      <nav class="nav container">
-        <a class="brand" href="#home">Apongpoh</a>
-        <ul class="nav-links">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header id="home" class="hero">
+      <nav class="nav container" aria-label="Primary navigation">
+        <a class="brand" href="#home" aria-label="Apongpoh Gilbert home">
+          <span class="brand-mark" aria-hidden="true">A</span>
+          <span>Apongpoh Gilbert</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+        >
+          <span class="sr-only">Menu</span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+        <ul id="primary-navigation" class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#experience">Experience</a></li>
@@ -24,121 +40,200 @@
         </ul>
       </nav>
 
-      <section id="home" class="hero-content container">
-        <p class="eyebrow">Cybersecurity Professional • Full-Stack Developer</p>
-        <h1>Building secure digital products with curiosity, discipline, and impact.</h1>
-        <p>
-          I began my IT journey in 2018 as a Help Desk professional. In 2019, I started learning programming and became a self-taught full-stack developer and cybersecurity professional.
+      <section class="hero-content container">
+        <p class="eyebrow">Security+ certified | SOC-focused | Dubai</p>
+        <h1>Turning technical support, secure development, and security operations into practical threat detection.</h1>
+        <p class="hero-copy">
+          I bring 7+ years across IT support, full-stack development, CCTV
+          security operations, and hands-on SOC lab work with Microsoft
+          Sentinel across Kali Linux, Windows, and Ubuntu environments.
         </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View Projects</a>
-          <a class="btn btn-secondary" href="#contact">Let's Work Together</a>
+        <figure class="hero-portrait">
+          <img
+            src="https://media.licdn.com/dms/image/v2/D4E03AQFjgZ4IeLnuZg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1729910795343?e=1778112000&v=beta&t=EUbmACIR0LuIlmW5Hc86y33cETuSMVN2fBHn9mXXePI"
+            alt="Portrait of Apongpoh Gilbert"
+          />
+          <figcaption>
+            <strong>Apongpoh Gilbert</strong>
+            <span>Junior SOC Analyst / Security Engineer candidate</span>
+          </figcaption>
+        </figure>
+        <div class="hero-actions" aria-label="Primary actions">
+          <a class="btn btn-primary" href="#projects">See selected work</a>
+          <a class="btn btn-secondary" href="#contact">Start a conversation</a>
+          <a class="btn btn-secondary" href="assets/apongpoh-gilbert-resume.pdf" target="_blank" rel="noreferrer">View resume</a>
+        </div>
+        <div class="hero-proof" aria-label="Professional highlights">
+          <article>
+            <strong>7+ Years</strong>
+            <span>Technical experience</span>
+          </article>
+          <article>
+            <strong>Security+</strong>
+            <span>CySA+ candidate</span>
+          </article>
+          <article>
+            <strong>Sentinel</strong>
+            <span>SOC lab practice</span>
+          </article>
         </div>
       </section>
     </header>
 
-    <main>
-      <section id="about" class="section container">
-        <h2>About Me</h2>
-        <p>
-          I don't hold a formal degree—my growth has been powered by curiosity, consistency, and passion for solving problems. Most of my work has been freelance, where I designed and delivered secure web applications for clients using JavaScript and Python.
-        </p>
-        <p>
-          Today, my primary focus is cybersecurity. I hold the CompTIA Security+ certification and I am preparing for CySA+ by the end of this year.
-        </p>
+    <main id="main">
+      <section id="about" class="section intro-section">
+        <div class="container split-layout">
+          <div class="section-heading">
+            <p class="section-kicker">About</p>
+            <h2>A 360-degree security perspective across systems, applications, and real-world operations.</h2>
+          </div>
+          <div class="rich-text">
+            <p>
+              I am a certified IT and cybersecurity professional with experience
+              across IT support, full-stack development, security operations,
+              and high-stakes surveillance work in Dubai.
+            </p>
+            <p>
+              My path combines digital threat detection with real-world
+              operational security. I have built secure full-stack applications,
+              supported Microsoft 365 and Active Directory environments, and
+              designed a Microsoft Sentinel lab for log analysis, alert triage,
+              and incident response practice.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section id="skills" class="section alt">
+      <section id="skills" class="section section-contrast">
         <div class="container">
-          <h2>Core Skills</h2>
-          <div class="grid cards-3">
-            <article class="card">
-              <h3>Cybersecurity</h3>
-              <ul>
-                <li>Security monitoring fundamentals</li>
-                <li>Vulnerability assessment workflows</li>
-                <li>Secure coding practices</li>
-                <li>Incident response support</li>
-              </ul>
+          <div class="section-heading narrow">
+            <p class="section-kicker">Core Skills</p>
+            <h2>A balanced toolkit for building and protecting software.</h2>
+          </div>
+          <div id="skill-list" class="skill-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="experience" class="section">
+        <div class="container split-layout">
+          <div class="section-heading sticky-heading">
+            <p class="section-kicker">Experience</p>
+            <h2>From IT support to SOC-ready security operations.</h2>
+            <p>
+              The through-line is simple: monitor carefully, document clearly,
+              troubleshoot calmly, and reduce risk with practical controls.
+            </p>
+          </div>
+          <div class="timeline">
+            <article>
+              <span>December 2025 to Present</span>
+              <h3>Security Guard / CCTV Operator - Affordable Group of Companies</h3>
+              <p>
+                Monitor CCTV and integrated security systems in Dubai, perform
+                alert triage, maintain incident logs, support access control,
+                and coordinate during critical events.
+              </p>
             </article>
-            <article class="card">
-              <h3>Full-Stack Development</h3>
-              <ul>
-                <li>JavaScript frontend architecture</li>
-                <li>Python backend services</li>
-                <li>REST API design & integration</li>
-                <li>Authentication and access control</li>
-              </ul>
+            <article>
+              <span>May 2023 to October 2025</span>
+              <h3>Full-Stack Web Developer - Wupoh</h3>
+              <p>
+                Designed and deployed 5+ custom web applications and
+                e-commerce platforms with secure authentication, RBAC, SSL/TLS,
+                bcrypt password protection, and OWASP Top 10 remediation.
+              </p>
             </article>
-            <article class="card">
-              <h3>Professional Strengths</h3>
-              <ul>
-                <li>Self-directed learning</li>
-                <li>Client communication</li>
-                <li>Documentation and handoff</li>
-                <li>Problem solving under pressure</li>
-              </ul>
+            <article>
+              <span>March 2018 to May 2023</span>
+              <h3>IT Support - Olabi Telecom</h3>
+              <p>
+                Maintained networks, routers, switches, firewalls, Windows and
+                Linux systems, Microsoft 365, Active Directory, MFA, backups,
+                patching, and 50+ workstations under service expectations.
+              </p>
+            </article>
+            <article>
+              <span>Current Focus</span>
+              <h3>Junior SOC Analyst / Security Engineer Path</h3>
+              <p>
+                Security+ certified, preparing for CySA+, and building hands-on
+                detection, log analysis, vulnerability management, and incident
+                response skills.
+              </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="experience" class="section container">
-        <h2>Experience Timeline</h2>
-        <div class="timeline">
-          <article>
-            <h3>2018 — Started in IT (Help Desk)</h3>
-            <p>Built a strong foundation in troubleshooting, user support, and systems reliability.</p>
-          </article>
-          <article>
-            <h3>2019 — Began Programming Journey</h3>
-            <p>Transitioned into software development through self-learning and practical client work.</p>
-          </article>
-          <article>
-            <h3>2020 to Present — Freelance Builder</h3>
-            <p>Developed multiple secure web applications with JavaScript and Python for diverse client needs.</p>
-          </article>
-          <article>
-            <h3>Now — Security-Focused Growth</h3>
-            <p>CompTIA Security+ certified and actively preparing for CySA+.</p>
-          </article>
+      <section id="projects" class="section project-section">
+        <div class="container">
+          <div class="section-heading narrow">
+            <p class="section-kicker">Featured Projects</p>
+            <h2>Project cards built around impact, not just technology.</h2>
+            <p>
+              A focused look at portfolio work, secure API thinking, and
+              blue-team practice.
+            </p>
+          </div>
+          <div id="project-list" class="project-grid" aria-live="polite"></div>
         </div>
       </section>
 
-      <section id="projects" class="section alt">
-        <div class="container">
-          <h2>Featured Projects</h2>
-          <p class="section-intro">
-            Add your project details progressively. Each card is ready for title, tech stack, impact, and links.
-          </p>
-          <div id="project-list" class="grid cards-3"></div>
+      <section id="roadmap" class="section roadmap-section">
+        <div class="container roadmap-layout">
+          <div class="section-heading">
+            <p class="section-kicker">Roadmap</p>
+            <h2>Career direction and certifications.</h2>
+          </div>
+          <div class="roadmap-list">
+            <article>
+              <span>Certified</span>
+              <p>CompTIA Security+ with applied experience across IT support, secure development, and physical-digital security operations.</p>
+            </article>
+            <article>
+              <span>In Progress</span>
+              <p>CompTIA CySA+ preparation with a focus on SOC workflows, threat detection, vulnerability management, and incident response.</p>
+            </article>
+            <article>
+              <span>Availability</span>
+              <p>Eligible to work in the United Arab Emirates, holding a UAE residence visa, and willing to relocate for the right security role.</p>
+            </article>
+            <article>
+              <span>Education</span>
+              <p>Science Stream high school graduate from Progressive Comprehensive High School, Mankon Bamenda, Cameroon.</p>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section id="roadmap" class="section container">
-        <h2>Professional Roadmap</h2>
-        <ul class="roadmap-list">
-          <li><strong>Current:</strong> Deepen blue-team and threat detection skills.</li>
-          <li><strong>2026 Goal:</strong> Complete CompTIA CySA+ preparation and exam.</li>
-          <li><strong>Ongoing:</strong> Keep building secure applications and documenting lessons learned.</li>
-        </ul>
-      </section>
-
-      <section id="contact" class="section alt">
-        <div class="container">
-          <h2>Contact</h2>
-          <p>Open to freelance projects, collaborations, and security-focused opportunities.</p>
-          <div class="contact-grid">
-            <a href="mailto:youremail@example.com">youremail@example.com</a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+      <section id="contact" class="section contact-section">
+        <div class="container contact-panel">
+          <div>
+            <p class="section-kicker">Contact</p>
+            <h2>Open to Junior SOC Analyst, Security Engineer, and security-focused technical roles.</h2>
+            <p>
+              Based in Dubai and ready to bring hands-on monitoring,
+              troubleshooting, secure development, and incident response
+              discipline to a focused security team.
+            </p>
+          </div>
+          <div class="contact-actions" aria-label="Contact links">
+            <a class="btn btn-primary" href="mailto:allogilbert0@gmail.com">Email Apongpoh</a>
+            <a class="btn btn-secondary" href="tel:+971507857682">Call</a>
+            <a class="btn btn-secondary" href="assets/apongpoh-gilbert-resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/apongpoh-gilbert-8152b3286/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn btn-secondary" href="https://github.com/Apongpoh" target="_blank" rel="noreferrer">GitHub</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>© <span id="year"></span> Apongpoh. Built with security and purpose.</p>
+      <p>&copy; <span id="year"></span> Apongpoh Gilbert. Built with security and purpose.</p>
+      <p class="credit">
+        Background photo by
+        <a href="https://unsplash.com/photos/a-person-typing-on-a-laptop-in-the-dark-6tG4sQx0dh4" target="_blank" rel="noreferrer">Mohammad Rahmani</a>.
+      </p>
     </footer>
 
     <script src="script.js"></script>
