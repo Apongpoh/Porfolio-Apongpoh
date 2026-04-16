@@ -446,6 +446,60 @@ const setupNavigation = () => {
   });
 };
 
+const setupThemeToggle = () => {
+  const toggle = document.querySelector(".theme-toggle");
+  const toggleText = document.querySelector(".theme-toggle-text");
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: light)");
+
+  if (!toggle || !toggleText) {
+    return;
+  }
+
+  const getSavedTheme = () => {
+    try {
+      return localStorage.getItem("portfolio-theme");
+    } catch (error) {
+      return null;
+    }
+  };
+
+  const saveTheme = (theme) => {
+    try {
+      localStorage.setItem("portfolio-theme", theme);
+    } catch (error) {
+      // The toggle still works for the current session if storage is blocked.
+    }
+  };
+
+  const applyTheme = (theme, shouldSave = false) => {
+    document.documentElement.dataset.theme = theme;
+    toggleText.textContent = theme === "light" ? "White" : "Dark";
+    toggle.setAttribute("aria-pressed", String(theme === "light"));
+    toggle.setAttribute(
+      "aria-label",
+      `Switch to ${theme === "light" ? "dark" : "white"} mode`
+    );
+
+    if (shouldSave) {
+      saveTheme(theme);
+    }
+  };
+
+  const currentTheme = document.documentElement.dataset.theme || "dark";
+  applyTheme(currentTheme);
+
+  toggle.addEventListener("click", () => {
+    const activeTheme = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+    applyTheme(activeTheme === "light" ? "dark" : "light", true);
+  });
+
+  mediaQuery.addEventListener("change", (event) => {
+    if (!getSavedTheme()) {
+      applyTheme(event.matches ? "light" : "dark");
+    }
+  });
+};
+
 const setupActiveSection = () => {
   const links = [...document.querySelectorAll(".nav-links a")];
   const sections = links
@@ -502,6 +556,7 @@ renderSkills();
 renderProjects();
 setupProjectLifecycle();
 setupNavigation();
+setupThemeToggle();
 setupActiveSection();
 setupReveal();
 

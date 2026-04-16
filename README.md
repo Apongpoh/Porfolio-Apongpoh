@@ -6,6 +6,7 @@ A polished static portfolio for Apongpoh, a cybersecurity-focused full-stack dev
 
 - Image-led hero with clear positioning and proof points
 - Sticky responsive navigation with mobile menu support
+- Dark/white mode toggle with saved visitor preference
 - About, skills, experience, projects, roadmap, and contact sections
 - Dynamic skills and project cards managed from `script.js`
 - Certification cards with placeholder links for missing credential details
@@ -23,6 +24,7 @@ Open `index.html` in your browser.
 - Replace placeholder project demo links, screenshots, and evidence notes in `script.js`.
 - Replace certification placeholder links and text in `index.html`.
 - Replace contact links in `index.html`.
+- Adjust dark and white theme colors in `styles.css`.
 - Replace the local profile photo at `assets/profile-apongpoh-gilbert.jpg`.
 - Replace the downloadable resume at `assets/apongpoh-gilbert-resume.pdf`.
 - Adjust the hero image URL in `styles.css`.
