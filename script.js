@@ -2,7 +2,7 @@ const skills = [
   {
     title: "SOC & Security Operations",
     summary:
-      "Hands-on monitoring, alert triage, log analysis, incident documentation, and Microsoft Sentinel lab practice.",
+      "Monitoring, alert review, log analysis, incident notes, and Microsoft Sentinel lab practice.",
     items: [
       "Security+",
       "Microsoft Sentinel",
@@ -14,14 +14,14 @@ const skills = [
   {
     title: "Secure Full-Stack Development",
     summary:
-      "Application security experience across custom web apps, e-commerce platforms, authentication, and deployment.",
+      "Web app work with authentication, access control, deployment, and basic application security in mind.",
     items: ["OWASP Top 10", "JWT", "RBAC", "SSL/TLS"],
     accent: "#ffd166"
   },
   {
     title: "IT Infrastructure",
     summary:
-      "Operational support across networks, Windows/Linux systems, Microsoft 365, Active Directory, and backups.",
+      "Support experience across networks, Windows and Linux systems, Microsoft 365, Active Directory, and backups.",
     items: ["Firewalls", "MFA", "AD/GPO", "50+ endpoints"],
     accent: "#ff715b"
   }
@@ -31,19 +31,19 @@ const featuredProjects = [
   {
     title: "Microsoft Sentinel SOC Lab",
     summary:
-      "A start-to-finish Microsoft Sentinel lab that provisions Azure resources, connects Ubuntu syslog and Windows security telemetry, then validates detection with KQL queries for authentication activity and failed logons.",
+      "A Microsoft Sentinel lab where I set up Azure resources, connected Ubuntu and Windows logs, and used KQL to check authentication activity and failed logons.",
     stack: ["Microsoft Sentinel", "Log Analytics", "DCR", "Ubuntu Syslog", "Windows SecurityEvent", "KQL"],
     status: "Featured SOC case study",
     links: [{ label: "Discuss this work", href: "#contact" }],
     accent: "#48e08e",
     featured: true,
     caseStudy: [
-      { label: "Build", value: "Created Azure resource groups for the Sentinel workspace, Ubuntu VM, Windows VM, and watcher resources." },
-      { label: "Ingest", value: "Configured data collection rules for Ubuntu syslog and Windows SecurityEvent telemetry." },
-      { label: "Validate", value: "Used KQL to confirm Linux auth activity and Windows 4625 failed logon events." }
+      { label: "Build", value: "Created the Azure resource groups, Sentinel workspace, Ubuntu VM, and Windows VM." },
+      { label: "Collect", value: "Added data collection rules for Ubuntu syslog and Windows security events." },
+      { label: "Check", value: "Used KQL to confirm Linux auth logs and Windows 4625 failed logons." }
     ],
     preview: {
-      title: "Evidence in case study",
+      title: "Inside the case study",
       points: [
         "4 Azure/Sentinel screenshots",
         "8 setup phases from resources to KQL",
@@ -52,10 +52,10 @@ const featuredProjects = [
     },
     evidenceTitle: "Lab evidence captured",
     evidence: [
-      "Azure resource groups organized for cloud shell storage, Network Watcher, Sentinel workspace, Ubuntu VM, and Windows VM resources.",
-      "Sentinel workspace connected to SecurityInsights with separate data collection rules for Ubuntu syslog and Windows security events.",
-      "KQL query against Syslog confirms auth and login-related activity from vm-ubuntu-server.",
-      "KQL query against SecurityEvent isolates Windows Event ID 4625 failed logons with account, activity, and source IP fields."
+      "Azure resource groups for the cloud shell storage, Network Watcher, Sentinel workspace, Ubuntu VM, and Windows VM.",
+      "A Sentinel workspace connected with separate collection rules for Ubuntu syslog and Windows security events.",
+      "A Syslog query showing auth and login-related activity from vm-ubuntu-server.",
+      "A SecurityEvent query showing Windows Event ID 4625 failed logons with account, activity, and source IP fields."
     ],
     screenshots: [
       {
@@ -65,7 +65,7 @@ const featuredProjects = [
         width: 1123,
         height: 270,
         caption:
-          "Resource groups separate the cloud shell storage, Network Watcher, Sentinel workspace, Ubuntu VM, and Windows VM pieces of the lab."
+          "The lab resources are separated so the workspace, Ubuntu VM, Windows VM, and watcher resources are easy to follow."
       },
       {
         title: "Sentinel workspace and collection rules",
@@ -74,7 +74,7 @@ const featuredProjects = [
         width: 760,
         height: 270,
         caption:
-          "The Log Analytics workspace is connected to Microsoft Sentinel, with dedicated collection rules for Ubuntu syslog and Windows security logs."
+          "The Log Analytics workspace is connected to Microsoft Sentinel, with one rule for Ubuntu syslog and one for Windows security logs."
       },
       {
         title: "Ubuntu auth telemetry in KQL",
@@ -83,7 +83,7 @@ const featuredProjects = [
         width: 1373,
         height: 444,
         caption:
-          "Syslog queries validate Linux auth telemetry by filtering login and auth messages from vm-ubuntu-server."
+          "This query checks Linux auth messages coming from vm-ubuntu-server."
       },
       {
         title: "Windows failed logon evidence",
@@ -92,56 +92,56 @@ const featuredProjects = [
         width: 1373,
         height: 444,
         caption:
-          "SecurityEvent queries isolate Event ID 4625 failed logons and project analyst fields such as account, activity, and source IP."
+          "This query filters failed logons and keeps the fields I would use during review."
       }
     ],
     lifecycle: [
       {
         phase: "1. Define the lab goal",
         detail:
-          "Build a small but realistic SOC practice environment where Linux and Windows endpoint activity flows into Microsoft Sentinel for analyst-style investigation."
+          "Build a small SOC practice lab where Ubuntu and Windows activity flows into Microsoft Sentinel."
       },
       {
         phase: "2. Plan the Azure structure",
         detail:
-          "Separate the cloud resources into clear groups for the Sentinel workspace, Ubuntu server, Windows server, Network Watcher, and Cloud Shell storage so each lab function is easy to identify."
+          "Keep the Azure resources organized by function: Sentinel workspace, Ubuntu server, Windows server, Network Watcher, and Cloud Shell storage."
       },
       {
         phase: "3. Create Sentinel and Log Analytics",
         detail:
-          "Create the Log Analytics workspace, enable the Microsoft Sentinel SecurityInsights solution, and use the workspace as the central place for security telemetry."
+          "Create the Log Analytics workspace, enable Microsoft Sentinel, and use the workspace as the central place for the logs."
       },
       {
         phase: "4. Connect Ubuntu syslog",
         detail:
-          "Create the Ubuntu data collection rule, connect vm-ubuntu-server, and collect syslog events so Linux authentication and system activity can be queried from Sentinel."
+          "Create the Ubuntu data collection rule, connect vm-ubuntu-server, and collect syslog events."
       },
       {
         phase: "5. Connect Windows security logs",
         detail:
-          "Create the Windows security data collection rule, connect vm-windows-serv, and collect SecurityEvent records such as failed logons."
+          "Create the Windows security data collection rule, connect vm-windows-serv, and collect SecurityEvent records."
       },
       {
         phase: "6. Validate Linux events with KQL",
         detail:
-          "Run Syslog queries for auth and login messages, confirm the expected host name, facility, severity, process ID, and source IP fields, then document what the records prove."
+          "Run Syslog queries for auth and login messages, then check the host, facility, severity, process ID, and source IP fields."
       },
       {
         phase: "7. Validate Windows failed logons",
         detail:
-          "Run SecurityEvent queries for Event ID 4625, project TimeGenerated, Computer, Account, Activity, and IpAddress, then use the result set as failed-logon investigation evidence."
+          "Run SecurityEvent queries for Event ID 4625 and keep the main fields: time, computer, account, activity, and IP address."
       },
       {
         phase: "8. Explain the full analyst workflow",
         detail:
-          "Use the screenshots to tell the story from resource provisioning to telemetry collection, KQL validation, evidence capture, and next improvements such as alerts, workbooks, and incident playbooks."
+          "Use the screenshots to explain the lab from resource setup to log collection, KQL checks, and possible next steps like alerts and workbooks."
       }
     ]
   },
   {
     title: "Sisi Africa",
     summary:
-      "A non-commercial social content web app with posts, comments, responsive sections, authentication-oriented dependencies, and media-ready infrastructure.",
+      "A practice social content app with posts, comments, responsive sections, and media-ready setup.",
     stack: ["Next.js", "MongoDB", "JWT", "AWS S3"],
     status: "Non-commercial web app",
     links: [
@@ -156,46 +156,46 @@ const featuredProjects = [
     ],
     accent: "#ffd166",
     preview: {
-      title: "App preview pending",
-      points: ["Feed screenshot pending", "Comment flow pending", "Media upload notes pending"]
+      title: "More details to add",
+      points: ["Feed screenshot", "Comment flow", "Media upload notes"]
     },
     evidence: [
       "Add one screenshot of the feed or content detail page.",
-      "Add a short note explaining authentication and media handling.",
-      "Add a demo link after deployment."
+      "Add a short note about authentication and media handling.",
+      "Keep the live demo link updated."
     ],
     lifecycle: [
       {
         phase: "Idea",
         detail:
-          "Explore a social content platform around community posting, comments, responsive navigation, and media-ready infrastructure."
+          "Build a simple social content app with posts, comments, responsive navigation, and media support."
       },
       {
         phase: "Architecture",
         detail:
-          "Structure the app with Next.js components, MongoDB data patterns, authentication dependencies, and AWS S3-ready media handling."
+          "Use Next.js components, MongoDB data patterns, authentication dependencies, and AWS S3-ready media handling."
       },
       {
         phase: "User Flow",
         detail:
-          "Build a feed-style experience with posts, comment loading, side sections, mobile visibility controls, and a branded loading state."
+          "Build the feed, comments, side sections, mobile visibility controls, and loading state."
       },
       {
         phase: "Security Considerations",
         detail:
-          "Include JWT, password hashing, validation, sanitization, and rate-limiting dependencies to support safer application flows."
+          "Plan for JWT, password hashing, validation, sanitization, and rate limiting."
       },
       {
         phase: "Learning Outcome",
         detail:
-          "Strengthened component organization, full-stack data flow thinking, and secure-by-default planning for content applications."
+          "Practiced component organization, full-stack data flow, and safer planning for content apps."
       }
     ]
   },
   {
     title: "Tierra",
     summary:
-      "A non-commercial marketplace-style web app with product discovery, advanced search, vendor flows, support tickets, and Bitcoin wallet concepts.",
+      "A practice marketplace app with product browsing, search, vendor flows, support tickets, and Bitcoin wallet ideas.",
     stack: ["Next.js", "TypeScript", "Bitcoin", "Security scripts"],
     status: "Non-commercial web app",
     links: [
@@ -210,46 +210,46 @@ const featuredProjects = [
     ],
     accent: "#ff715b",
     preview: {
-      title: "Marketplace preview pending",
-      points: ["Product search screenshot pending", "Vendor flow pending", "Wallet concept notes pending"]
+      title: "More details to add",
+      points: ["Product search screenshot", "Vendor flow", "Wallet concept notes"]
     },
     evidence: [
       "Add a screenshot of search, product detail, or vendor dashboard.",
-      "Add a short case-study note for security scripts and validation.",
+      "Add a short note about security scripts and validation.",
       "Add a demo link after deployment."
     ],
     lifecycle: [
       {
         phase: "Concept",
         detail:
-          "Design a marketplace-style app that combines product browsing, vendor flows, support workflows, and crypto wallet ideas."
+          "Build a marketplace-style app with product browsing, vendor flows, support workflows, and crypto wallet ideas."
       },
       {
         phase: "Product Experience",
         detail:
-          "Build category browsing, advanced filtering, pagination, quick-view product modals, support ticket replies, and responsive sections."
+          "Add category browsing, filtering, pagination, quick-view product modals, support ticket replies, and responsive sections."
       },
       {
         phase: "Security Layer",
         detail:
-          "Add security audit, monitoring, and test scripts alongside validation and authentication-oriented dependencies."
+          "Add security audit, monitoring, and test scripts, plus validation and authentication-focused dependencies."
       },
       {
         phase: "Crypto Exploration",
         detail:
-          "Experiment with Bitcoin wallet flows, escrow concepts, QR code generation, and transaction-oriented user interface patterns."
+          "Try Bitcoin wallet flows, escrow concepts, QR code generation, and transaction screens."
       },
       {
         phase: "Learning Outcome",
         detail:
-          "Practiced larger application state management, marketplace workflows, and security-conscious feature planning."
+          "Practiced larger app structure, marketplace workflows, and security-aware feature planning."
       }
     ]
   },
   {
     title: "Fiorell",
     summary:
-      "A privacy-focused dating app concept with profiles, matching, messaging, location-aware discovery, premium flows, and cryptocurrency payment support.",
+      "A practice dating app concept with profiles, matching, messaging, location-aware discovery, premium flows, and crypto payment ideas.",
     stack: ["Next.js", "MongoDB", "JWT", "Crypto payments"],
     status: "Non-commercial web app",
     links: [
@@ -264,24 +264,24 @@ const featuredProjects = [
     ],
     accent: "#48e08e",
     preview: {
-      title: "Privacy flow pending",
-      points: ["Profile screenshot pending", "Match flow pending", "Messaging notes pending"]
+      title: "More details to add",
+      points: ["Profile screenshot", "Match flow", "Messaging notes"]
     },
     evidence: [
       "Add one screenshot of profile, matching, or messaging screens.",
-      "Add a short note on privacy protections and protected routes.",
+      "Add a short note about privacy protections and protected routes.",
       "Add a demo link after deployment."
     ],
     lifecycle: [
       {
         phase: "Problem Framing",
         detail:
-          "Explore how a privacy-focused dating app could support discovery, matching, messaging, and premium account flows."
+          "Explore how a privacy-focused dating app could handle discovery, matching, messaging, and premium account flows."
       },
       {
         phase: "Core Build",
         detail:
-          "Plan user profiles, photo management, like/pass interactions, match detection, real-time messaging, settings, and dashboard pages."
+          "Plan user profiles, photo management, like/pass actions, matches, messaging, settings, and dashboard pages."
       },
       {
         phase: "Data Model",
@@ -291,12 +291,12 @@ const featuredProjects = [
       {
         phase: "Security & Privacy",
         detail:
-          "Include JWT authentication, bcrypt password hashing, protected API routes, Zod validation, and privacy-focused payment options."
+          "Plan JWT authentication, bcrypt password hashing, protected API routes, Zod validation, and privacy-friendly payment options."
       },
       {
         phase: "Learning Outcome",
         detail:
-          "Practiced building a complex full-stack product with privacy, payments, user safety, and API documentation in mind."
+          "Practiced a larger full-stack app with privacy, payments, user safety, and API documentation in mind."
       }
     ]
   }
