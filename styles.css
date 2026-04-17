@@ -79,6 +79,33 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+body,
+.nav::before,
+.hero,
+.section-contrast,
+.intro-section,
+.credentials-section,
+.project-section,
+.roadmap-section,
+.skill-card,
+.project-card,
+.credential-card,
+.roadmap-list article,
+.timeline article,
+.contact-panel,
+.lifecycle-panel,
+.project-preview,
+.btn,
+.project-link,
+.theme-toggle,
+.nav-toggle {
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease,
+    box-shadow 220ms ease;
+}
+
 body.nav-open {
   overflow: hidden;
 }
@@ -231,6 +258,7 @@ select {
 }
 
 .nav-links a {
+  position: relative;
   display: inline-flex;
   align-items: center;
   min-height: 42px;
@@ -243,11 +271,31 @@ select {
   transition: color 180ms ease, background-color 180ms ease;
 }
 
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  right: 0.7rem;
+  bottom: 0.35rem;
+  left: 0.7rem;
+  height: 2px;
+  background: var(--accent);
+  border-radius: var(--radius);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
 .nav-links a:hover,
 .nav-links a:focus-visible,
 .nav-links a.is-active {
   color: var(--text);
   background: var(--hover-bg);
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after,
+.nav-links a.is-active::after {
+  transform: scaleX(1);
 }
 
 .nav-actions {
@@ -268,7 +316,7 @@ select {
   border-radius: var(--radius);
   cursor: pointer;
   font-weight: 900;
-  transition: border-color 180ms ease, background-color 180ms ease;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
 }
 
 .theme-toggle:hover {
@@ -465,7 +513,9 @@ h3 {
   transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
 }
 
-.btn:hover {
+.btn:hover,
+.project-link:hover,
+.theme-toggle:hover {
   transform: translateY(-2px);
 }
 
@@ -773,6 +823,45 @@ h3 {
   grid-column: span 2;
 }
 
+.project-card.case-study {
+  grid-column: 1 / -1;
+  min-height: auto;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background:
+    linear-gradient(135deg, rgba(72, 224, 142, 0.16), transparent 45%),
+    linear-gradient(90deg, rgba(255, 209, 102, 0.08), transparent 58%),
+    var(--surface-strong);
+}
+
+.case-study-points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+}
+
+.case-study-point {
+  min-height: 118px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+}
+
+.case-study-point dt {
+  color: var(--accent-warm);
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.case-study-point dd {
+  margin: 0.45rem 0 0;
+  color: var(--text);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
 .project-card h3 {
   margin-top: 1rem;
   font-size: 1.55rem;
@@ -850,11 +939,37 @@ h3 {
   cursor: pointer;
   text-decoration: none;
   font-weight: 900;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
 }
 
 .project-link:hover {
   border-color: var(--accent);
   background: rgba(72, 224, 142, 0.08);
+}
+
+.project-walkthrough {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 1.25rem;
+  padding: clamp(1.2rem, 3vw, 1.6rem);
+  background:
+    linear-gradient(110deg, rgba(72, 224, 142, 0.12), rgba(255, 209, 102, 0.08), rgba(255, 113, 91, 0.08)),
+    var(--surface-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.project-walkthrough h3 {
+  font-size: 1.35rem;
+}
+
+.project-walkthrough p:not(.section-kicker) {
+  max-width: 680px;
+  margin-bottom: 0;
+  color: var(--muted);
 }
 
 .lifecycle-modal {
@@ -877,6 +992,10 @@ h3 {
   backdrop-filter: blur(8px);
 }
 
+.lifecycle-modal:not([hidden]) .lifecycle-backdrop {
+  animation: lifecycle-fade 180ms ease-out;
+}
+
 .lifecycle-panel {
   position: relative;
   z-index: 1;
@@ -888,6 +1007,10 @@ h3 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+}
+
+.lifecycle-modal:not([hidden]) .lifecycle-panel {
+  animation: lifecycle-panel-in 220ms ease-out;
 }
 
 .lifecycle-panel h3 {
@@ -1065,11 +1188,43 @@ h3 {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 420ms ease, transform 420ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
 [data-animate].is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (hover: hover) {
+  .skill-card.is-visible:hover,
+  .project-card.is-visible:hover,
+  .credential-card.is-visible:hover,
+  .project-walkthrough.is-visible:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes lifecycle-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lifecycle-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @media (max-width: 900px) {
@@ -1130,7 +1285,8 @@ h3 {
 
   .split-layout,
   .roadmap-layout,
-  .contact-panel {
+  .contact-panel,
+  .project-walkthrough {
     grid-template-columns: 1fr;
   }
 
@@ -1146,6 +1302,10 @@ h3 {
 
   .project-card.featured {
     grid-column: span 2;
+  }
+
+  .project-card.case-study {
+    grid-column: 1 / -1;
   }
 
   .contact-actions {
@@ -1206,6 +1366,10 @@ h3 {
     min-height: auto;
   }
 
+  .case-study-points {
+    grid-template-columns: 1fr;
+  }
+
   .lifecycle-panel h3 {
     padding-right: 4.5rem;
     font-size: 1.45rem;
@@ -1244,5 +1408,6 @@ h3 {
   [data-animate] {
     opacity: 1;
     transform: none;
+    transition-delay: 0ms;
   }
 }

@@ -33,16 +33,21 @@ const featuredProjects = [
     summary:
       "A dedicated lab environment for unified threat monitoring, log analysis, alert triage, and incident response practice across Kali Linux, Windows, and Ubuntu servers.",
     stack: ["Microsoft Sentinel", "Kali Linux", "Windows", "Ubuntu", "Alert triage"],
-    status: "SOC practice",
+    status: "Featured SOC case study",
     links: [
       { label: "Discuss this work", href: "#contact" },
-      { label: "Evidence placeholder", href: "#contact" }
+      { label: "Evidence artifacts pending", href: "#contact" }
     ],
     accent: "#48e08e",
     featured: true,
+    caseStudy: [
+      { label: "Problem", value: "Centralize endpoint activity for analyst-style review." },
+      { label: "Monitoring", value: "Review security events, alerts, and triage notes." },
+      { label: "Outcome", value: "Build repeatable habits for detection and response." }
+    ],
     preview: {
-      title: "SOC evidence preview",
-      points: ["Sentinel dashboard placeholder", "Sample KQL query placeholder", "Incident notes placeholder"]
+      title: "SOC evidence pending",
+      points: ["Sentinel dashboard artifact pending", "Sample KQL query pending", "Incident notes pending"]
     },
     evidence: [
       "Add Sentinel workspace screenshot with sample alerts.",
@@ -89,14 +94,14 @@ const featuredProjects = [
         href: "https://github.com/Apongpoh/sisi-africa"
       },
       {
-        label: "Live demo placeholder",
+        label: "Demo coming soon",
         href: "#contact"
       }
     ],
     accent: "#ffd166",
     preview: {
-      title: "App preview placeholder",
-      points: ["Feed screenshot placeholder", "Comment flow placeholder", "Media upload placeholder"]
+      title: "App preview pending",
+      points: ["Feed screenshot pending", "Comment flow pending", "Media upload notes pending"]
     },
     evidence: [
       "Add one screenshot of the feed or content detail page.",
@@ -143,14 +148,14 @@ const featuredProjects = [
         href: "https://github.com/Apongpoh/tierra"
       },
       {
-        label: "Live demo placeholder",
+        label: "Demo coming soon",
         href: "#contact"
       }
     ],
     accent: "#ff715b",
     preview: {
-      title: "Marketplace preview placeholder",
-      points: ["Product search placeholder", "Vendor flow placeholder", "Wallet concept placeholder"]
+      title: "Marketplace preview pending",
+      points: ["Product search screenshot pending", "Vendor flow pending", "Wallet concept notes pending"]
     },
     evidence: [
       "Add a screenshot of search, product detail, or vendor dashboard.",
@@ -197,14 +202,14 @@ const featuredProjects = [
         href: "https://github.com/Apongpoh/fiorell"
       },
       {
-        label: "Live demo placeholder",
+        label: "Demo coming soon",
         href: "#contact"
       }
     ],
     accent: "#48e08e",
     preview: {
-      title: "Privacy flow placeholder",
-      points: ["Profile screenshot placeholder", "Match flow placeholder", "Messaging placeholder"]
+      title: "Privacy flow pending",
+      points: ["Profile screenshot pending", "Match flow pending", "Messaging notes pending"]
     },
     evidence: [
       "Add one screenshot of profile, matching, or messaging screens.",
@@ -295,7 +300,7 @@ const renderProjects = () => {
   featuredProjects.forEach((project, index) => {
     const card = createElement(
       "article",
-      `project-card${project.featured ? " featured" : ""}`
+      `project-card${project.featured ? " featured case-study" : ""}`
     );
     card.style.setProperty("--card-accent", project.accent);
     card.setAttribute("data-animate", "");
@@ -303,6 +308,19 @@ const renderProjects = () => {
     card.append(
       createElement("span", "project-status", project.status)
     );
+
+    if (project.caseStudy) {
+      const caseStudy = createElement("dl", "case-study-points");
+      project.caseStudy.forEach((point) => {
+        const group = createElement("div", "case-study-point");
+        group.append(
+          createElement("dt", "", point.label),
+          createElement("dd", "", point.value)
+        );
+        caseStudy.append(group);
+      });
+      card.append(caseStudy);
+    }
 
     if (project.preview) {
       const preview = createElement("div", "project-preview");
@@ -449,6 +467,7 @@ const setupNavigation = () => {
 const setupThemeToggle = () => {
   const toggle = document.querySelector(".theme-toggle");
   const toggleText = document.querySelector(".theme-toggle-text");
+  const themeColor = document.querySelector('meta[name="theme-color"]');
   const mediaQuery = window.matchMedia("(prefers-color-scheme: light)");
 
   if (!toggle || !toggleText) {
@@ -473,6 +492,7 @@ const setupThemeToggle = () => {
 
   const applyTheme = (theme, shouldSave = false) => {
     document.documentElement.dataset.theme = theme;
+    themeColor?.setAttribute("content", theme === "light" ? "#fbfcf7" : "#080908");
     toggleText.textContent = theme === "light" ? "White" : "Dark";
     toggle.setAttribute("aria-pressed", String(theme === "light"));
     toggle.setAttribute(
@@ -549,7 +569,11 @@ const setupReveal = () => {
     { threshold: 0.18 }
   );
 
-  animated.forEach((element) => observer.observe(element));
+  animated.forEach((element, index) => {
+    const delay = Math.min(index * 45, 240);
+    element.style.setProperty("--reveal-delay", `${delay}ms`);
+    observer.observe(element);
+  });
 };
 
 renderSkills();

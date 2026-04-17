@@ -8,12 +8,17 @@
       name="description"
       content="Portfolio of Apongpoh Gilbert, a Security+ certified IT and cybersecurity professional focused on SOC analysis, secure development, and security operations."
     />
+    <meta name="theme-color" content="#080908" />
     <script>
       (() => {
         try {
           const savedTheme = localStorage.getItem("portfolio-theme");
           const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-          document.documentElement.dataset.theme = savedTheme || (prefersLight ? "light" : "dark");
+          const theme = savedTheme || (prefersLight ? "light" : "dark");
+          document.documentElement.dataset.theme = theme;
+          document
+            .querySelector('meta[name="theme-color"]')
+            ?.setAttribute("content", theme === "light" ? "#fbfcf7" : "#080908");
         } catch (error) {
           document.documentElement.dataset.theme = "dark";
         }
@@ -78,6 +83,8 @@
           <img
             src="assets/profile-apongpoh-gilbert.jpg"
             alt="Portrait of Apongpoh Gilbert"
+            width="400"
+            height="400"
           />
           <figcaption>
             <strong>Apongpoh Gilbert</strong>
@@ -144,7 +151,7 @@
         <div class="container">
           <div class="section-heading narrow">
             <p class="section-kicker">Certifications</p>
-            <h2>Proof points, current preparation, and placeholders for credential links.</h2>
+            <h2>Proof points, current preparation, and credential evidence in progress.</h2>
             <p>
               Add verification URLs or badge links as they become available.
               The portfolio keeps the evidence visible even while details are
@@ -156,19 +163,19 @@
               <span>Certified</span>
               <h3>CompTIA Security+</h3>
               <p>Security foundations across threats, architecture, operations, identity, risk, and incident response.</p>
-              <a href="#contact">Credential link placeholder</a>
+              <a href="#contact">Credential link pending</a>
             </article>
             <article class="credential-card" data-animate>
               <span>In Progress</span>
               <h3>CompTIA CySA+</h3>
               <p>SOC analysis, threat detection, vulnerability management, log review, and response workflows.</p>
-              <a href="#contact">Exam timeline placeholder</a>
+              <a href="#contact">Exam timeline pending</a>
             </article>
             <article class="credential-card" data-animate>
-              <span>Placeholder</span>
+              <span>Pending</span>
               <h3>Full-Stack Development Credential</h3>
               <p>Add the certificate name, provider, issue date, and verification link when the details are ready.</p>
-              <a href="#contact">Certificate placeholder</a>
+              <a href="#contact">Certificate details pending</a>
             </article>
             <article class="credential-card" data-animate>
               <span>Evidence</span>
@@ -240,11 +247,22 @@
               SOC practice comes first, followed by non-commercial web apps
               built to explore secure product workflows, full-stack systems,
               and project lifecycle decisions. Screenshots, demos, and case
-              study links are marked as placeholders where final assets are not
+              study artifacts are marked as pending where final assets are not
               available yet.
             </p>
           </div>
           <div id="project-list" class="project-grid" aria-live="polite"></div>
+          <aside class="project-walkthrough" data-animate>
+            <div>
+              <p class="section-kicker">Walkthrough</p>
+              <h3>Want a practical walkthrough of the SOC lab or app architecture?</h3>
+              <p>
+                I can explain the monitoring flow, project decisions, security
+                tradeoffs, and what evidence I would collect next.
+              </p>
+            </div>
+            <a class="btn btn-primary" href="#contact">Request a walkthrough</a>
+          </aside>
           <section
             id="project-lifecycle"
             class="lifecycle-modal"
