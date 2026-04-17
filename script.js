@@ -161,6 +161,8 @@ const featuredProjects = [
       points: ["Auth boundaries", "Content validation", "Media handling"]
     },
     evidence: [
+      "The public demo stays cost-free, so production sign-in is intentionally not enabled there.",
+      "Login, sign-in, protected routes, and authorization behavior were tested locally during development.",
       "Review how users move through posts, comments, and media-backed content without relying on screenshots.",
       "Explain the authentication boundary, JWT handling plan, and where protected actions should be enforced.",
       "Discuss validation, sanitization, file upload controls, and rate limiting as the security improvements to prioritize."
@@ -184,7 +186,7 @@ const featuredProjects = [
       {
         phase: "Security Considerations",
         detail:
-          "Plan for JWT, password hashing, validation, sanitization, and rate limiting."
+          "Build and test the login, sign-in, authorization checks, and protected-route behavior locally, then leave production auth disabled on the public demo to avoid non-commercial hosting cost."
       },
       {
         phase: "Learning Outcome",
@@ -216,6 +218,8 @@ const featuredProjects = [
       points: ["Vendor flows", "Input validation", "Wallet risk review"]
     },
     evidence: [
+      "The public demo is a cost-free preview, with production login and authorization intentionally left offline.",
+      "Authentication, protected routes, and role-style access checks were tested locally before deployment.",
       "Use the live demo to talk through marketplace attack surfaces instead of adding static screenshots.",
       "Explain how product search, vendor flows, support tickets, and admin-style actions should be validated and authorized.",
       "Discuss wallet-related risks, transaction trust boundaries, logging, and security scripts as the strongest learning areas."
@@ -234,7 +238,7 @@ const featuredProjects = [
       {
         phase: "Security Layer",
         detail:
-          "Add security audit, monitoring, and test scripts, plus validation and authentication-focused dependencies."
+          "Test authentication, authorization, protected flows, validation, audit scripts, and monitoring ideas locally, while keeping production auth out of the public demo."
       },
       {
         phase: "Crypto Exploration",
@@ -271,6 +275,8 @@ const featuredProjects = [
       points: ["Privacy controls", "Protected routes", "Messaging safety"]
     },
     evidence: [
+      "The public demo is kept lightweight, so production sign-in and authorization are not connected there.",
+      "Login, protected pages, access checks, and account-flow behavior were tested locally during the build.",
       "Use the live demo to explain privacy, matching, messaging, and account-safety decisions without adding screenshots.",
       "Discuss protected routes, password hashing, JWT sessions, input validation, and safe handling of profile data.",
       "Explain where abuse prevention, payment boundaries, logging, and user reporting controls would fit next."
@@ -294,7 +300,7 @@ const featuredProjects = [
       {
         phase: "Security & Privacy",
         detail:
-          "Plan JWT authentication, bcrypt password hashing, protected API routes, Zod validation, and privacy-friendly payment options."
+          "Test JWT authentication, bcrypt password hashing, protected API routes, Zod validation, and account privacy locally, while leaving production sign-in offline for the public demo."
       },
       {
         phase: "Learning Outcome",
