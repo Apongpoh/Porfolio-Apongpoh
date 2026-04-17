@@ -674,7 +674,7 @@ h3 {
 
 .credential-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   gap: 1rem;
 }
 
@@ -697,6 +697,10 @@ h3 {
 
 .credential-card:nth-child(4) {
   --card-accent: var(--accent);
+}
+
+.credential-card:nth-child(5) {
+  --card-accent: var(--accent-warm);
 }
 
 .credential-card span {

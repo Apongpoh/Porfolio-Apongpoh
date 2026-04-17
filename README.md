@@ -9,7 +9,7 @@ A polished static portfolio for Apongpoh, a cybersecurity-focused full-stack dev
 - Dark/white mode toggle with saved visitor preference
 - About, skills, experience, projects, roadmap, and contact sections
 - Dynamic skills and project cards managed from `script.js`
-- Certification cards with pending credential links for missing details
+- Certification cards with Security+, Google Cybersecurity, and Meta credential links
 - Featured SOC case-study card with Azure/Sentinel lab screenshots
 - Project lifecycle modals with evidence notes for screenshots, demos, and case studies
 - Staggered reveal animation, modal entrance motion, and reduced-motion support
@@ -24,7 +24,8 @@ Open `index.html` in your browser.
 - Update project data in `script.js`.
 - Update skill data in `script.js`.
 - Replace pending project demo links, screenshots, and evidence notes in `script.js`.
-- Replace pending certification links and text in `index.html`.
+- Replace certification links and text in `index.html`.
+- Replace the downloadable Security+ certificate at `assets/CompTIA Security+ ce certificate.pdf`.
 - Add or replace SOC lab screenshots in `assets/test_logs/`.
 - Replace contact links in `index.html`.
 - Adjust dark and white theme colors in `styles.css`.
