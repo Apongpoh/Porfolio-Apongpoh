@@ -146,8 +146,8 @@ const featuredProjects = [
         href: "https://github.com/Apongpoh/sisi-africa"
       },
       {
-        label: "Demo coming soon",
-        href: "#contact"
+        label: "Live demo",
+        href: "https://sauti-africa-rho.vercel.app/"
       }
     ],
     accent: "#ffd166",
