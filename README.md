@@ -25,7 +25,7 @@ Open `index.html` in your browser.
 - Update skill data in `script.js`.
 - Replace pending project demo links, screenshots, and evidence notes in `script.js`.
 - Replace certification links and text in `index.html`.
-- Replace the downloadable Security+ certificate at `assets/CompTIA Security+ ce certificate.pdf`.
+- Replace downloadable certificate PDFs in `assets/`.
 - Add or replace SOC lab screenshots in `assets/test_logs/`.
 - Replace contact links in `index.html`.
 - Adjust dark and white theme colors in `styles.css`.
