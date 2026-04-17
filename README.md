@@ -20,6 +20,17 @@ A polished static portfolio for Apongpoh, a cybersecurity-focused full-stack dev
 
 Open `index.html` in your browser.
 
+## Deploy Free
+
+This portfolio is configured for GitHub Pages through `.github/workflows/pages.yml`.
+
+The expected free live URL is:
+
+`https://apongpoh.github.io/Porfolio-Apongpoh/`
+
+If the first deployment does not start, open the repository on GitHub, go to
+Settings, then Pages, and set the source to GitHub Actions.
+
 ## Customize
 
 - Update project data in `script.js`.
