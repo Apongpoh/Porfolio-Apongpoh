@@ -10,7 +10,7 @@ A polished static portfolio for Apongpoh, a cybersecurity-focused full-stack dev
 - About, skills, experience, projects, roadmap, and contact sections
 - Dynamic skills and project cards managed from `script.js`
 - Certification cards with pending credential links for missing details
-- Featured SOC case-study card with pending evidence artifacts
+- Featured SOC case-study card with Azure/Sentinel lab screenshots
 - Project lifecycle modals with evidence notes for screenshots, demos, and case studies
 - Staggered reveal animation, modal entrance motion, and reduced-motion support
 - Accessible focus states, skip link, reduced-motion support, and responsive layouts
@@ -25,6 +25,7 @@ Open `index.html` in your browser.
 - Update skill data in `script.js`.
 - Replace pending project demo links, screenshots, and evidence notes in `script.js`.
 - Replace pending certification links and text in `index.html`.
+- Add or replace SOC lab screenshots in `assets/test_logs/`.
 - Replace contact links in `index.html`.
 - Adjust dark and white theme colors in `styles.css`.
 - Replace the local profile photo at `assets/profile-apongpoh-gilbert.jpg`.

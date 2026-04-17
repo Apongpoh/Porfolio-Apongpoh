@@ -862,6 +862,47 @@ h3 {
   line-height: 1.35;
 }
 
+.lab-evidence-grid,
+.lifecycle-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.lab-evidence-card {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+}
+
+.lab-evidence-card img {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  object-fit: contain;
+  background: var(--surface-soft);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lab-evidence-card figcaption {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.85rem;
+}
+
+.lab-evidence-card strong {
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.lab-evidence-card span {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
 .project-card h3 {
   margin-top: 1rem;
   font-size: 1.55rem;
@@ -1040,6 +1081,10 @@ h3 {
   padding-left: 1.1rem;
   margin: 0.65rem 0 0;
   color: var(--muted);
+}
+
+.lifecycle-gallery {
+  margin-top: 1rem;
 }
 
 .lifecycle-close {
@@ -1367,6 +1412,11 @@ h3 {
   }
 
   .case-study-points {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-evidence-grid,
+  .lifecycle-gallery-grid {
     grid-template-columns: 1fr;
   }
 

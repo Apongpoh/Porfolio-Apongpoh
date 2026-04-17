@@ -31,54 +31,106 @@ const featuredProjects = [
   {
     title: "Microsoft Sentinel SOC Lab",
     summary:
-      "A dedicated lab environment for unified threat monitoring, log analysis, alert triage, and incident response practice across Kali Linux, Windows, and Ubuntu servers.",
-    stack: ["Microsoft Sentinel", "Kali Linux", "Windows", "Ubuntu", "Alert triage"],
+      "A start-to-finish Microsoft Sentinel lab that provisions Azure resources, connects Ubuntu syslog and Windows security telemetry, then validates detection with KQL queries for authentication activity and failed logons.",
+    stack: ["Microsoft Sentinel", "Log Analytics", "DCR", "Ubuntu Syslog", "Windows SecurityEvent", "KQL"],
     status: "Featured SOC case study",
-    links: [
-      { label: "Discuss this work", href: "#contact" },
-      { label: "Evidence artifacts pending", href: "#contact" }
-    ],
+    links: [{ label: "Discuss this work", href: "#contact" }],
     accent: "#48e08e",
     featured: true,
     caseStudy: [
-      { label: "Problem", value: "Centralize endpoint activity for analyst-style review." },
-      { label: "Monitoring", value: "Review security events, alerts, and triage notes." },
-      { label: "Outcome", value: "Build repeatable habits for detection and response." }
+      { label: "Build", value: "Created Azure resource groups for the Sentinel workspace, Ubuntu VM, Windows VM, and watcher resources." },
+      { label: "Ingest", value: "Configured data collection rules for Ubuntu syslog and Windows SecurityEvent telemetry." },
+      { label: "Validate", value: "Used KQL to confirm Linux auth activity and Windows 4625 failed logon events." }
     ],
     preview: {
-      title: "SOC evidence pending",
-      points: ["Sentinel dashboard artifact pending", "Sample KQL query pending", "Incident notes pending"]
+      title: "Captured lab evidence",
+      points: ["Azure resource groups and workspace", "Ubuntu syslog collection rule", "Windows failed logon KQL results"]
     },
+    evidenceTitle: "Lab evidence captured",
     evidence: [
-      "Add Sentinel workspace screenshot with sample alerts.",
-      "Add one sanitized KQL query and investigation notes.",
-      "Add a short incident report showing triage, impact, and response."
+      "Azure resource groups organized for cloud shell storage, Network Watcher, Sentinel workspace, Ubuntu VM, and Windows VM resources.",
+      "Sentinel workspace connected to SecurityInsights with separate data collection rules for Ubuntu syslog and Windows security events.",
+      "KQL query against Syslog confirms auth and login-related activity from vm-ubuntu-server.",
+      "KQL query against SecurityEvent isolates Windows Event ID 4625 failed logons with account, activity, and source IP fields."
+    ],
+    screenshots: [
+      {
+        title: "Azure resource layout",
+        src: "assets/test_logs/Screenshot from 2026-04-17 04-37-33.png",
+        alt: "Azure resource groups for the Sentinel lab setup",
+        width: 1123,
+        height: 270,
+        caption:
+          "Resource groups separate the cloud shell storage, Network Watcher, Sentinel workspace, Ubuntu VM, and Windows VM pieces of the lab."
+      },
+      {
+        title: "Sentinel workspace and collection rules",
+        src: "assets/test_logs/Screenshot from 2026-04-17 04-38-14.png",
+        alt: "Azure Sentinel workspace and data collection rules",
+        width: 760,
+        height: 270,
+        caption:
+          "The Log Analytics workspace is connected to Microsoft Sentinel, with dedicated collection rules for Ubuntu syslog and Windows security logs."
+      },
+      {
+        title: "Ubuntu auth telemetry in KQL",
+        src: "assets/test_logs/Screenshot from 2026-04-17 04-40-38.png",
+        alt: "KQL query showing Ubuntu syslog authentication events",
+        width: 1373,
+        height: 444,
+        caption:
+          "Syslog queries validate Linux auth telemetry by filtering login and auth messages from vm-ubuntu-server."
+      },
+      {
+        title: "Windows failed logon evidence",
+        src: "assets/test_logs/Screenshot from 2026-04-17 04-44-41.png",
+        alt: "KQL query showing Windows failed logon event ID 4625",
+        width: 1373,
+        height: 444,
+        caption:
+          "SecurityEvent queries isolate Event ID 4625 failed logons and project analyst fields such as account, activity, and source IP."
+      }
     ],
     lifecycle: [
       {
-        phase: "Goal",
+        phase: "1. Define the lab goal",
         detail:
-          "Build a practical SOC training environment that connects endpoint activity with centralized monitoring and analyst-style review."
+          "Build a small but realistic SOC practice environment where Linux and Windows endpoint activity flows into Microsoft Sentinel for analyst-style investigation."
       },
       {
-        phase: "Environment Design",
+        phase: "2. Plan the Azure structure",
         detail:
-          "Use Kali Linux, Windows, and Ubuntu systems to represent attacker tooling, user endpoints, and server telemetry sources."
+          "Separate the cloud resources into clear groups for the Sentinel workspace, Ubuntu server, Windows server, Network Watcher, and Cloud Shell storage so each lab function is easy to identify."
       },
       {
-        phase: "Monitoring Setup",
+        phase: "3. Create Sentinel and Log Analytics",
         detail:
-          "Route security-relevant logs into Microsoft Sentinel for unified visibility, alert review, and event correlation."
+          "Create the Log Analytics workspace, enable the Microsoft Sentinel SecurityInsights solution, and use the workspace as the central place for security telemetry."
       },
       {
-        phase: "Detection Practice",
+        phase: "4. Connect Ubuntu syslog",
         detail:
-          "Review suspicious activity, document triage notes, collect evidence, and practice moving from raw events to incident response decisions."
+          "Create the Ubuntu data collection rule, connect vm-ubuntu-server, and collect syslog events so Linux authentication and system activity can be queried from Sentinel."
       },
       {
-        phase: "Improvement Loop",
+        phase: "5. Connect Windows security logs",
         detail:
-          "Use each scenario to improve log coverage, refine alert handling, and strengthen blue-team investigation habits."
+          "Create the Windows security data collection rule, connect vm-windows-serv, and collect SecurityEvent records such as failed logons."
+      },
+      {
+        phase: "6. Validate Linux events with KQL",
+        detail:
+          "Run Syslog queries for auth and login messages, confirm the expected host name, facility, severity, process ID, and source IP fields, then document what the records prove."
+      },
+      {
+        phase: "7. Validate Windows failed logons",
+        detail:
+          "Run SecurityEvent queries for Event ID 4625, project TimeGenerated, Computer, Account, Activity, and IpAddress, then use the result set as failed-logon investigation evidence."
+      },
+      {
+        phase: "8. Explain the full analyst workflow",
+        detail:
+          "Use the screenshots to tell the story from resource provisioning to telemetry collection, KQL validation, evidence capture, and next improvements such as alerts, workbooks, and incident playbooks."
       }
     ]
   },
@@ -260,6 +312,29 @@ const createElement = (tag, className, text) => {
   return element;
 };
 
+const createScreenshotFigure = (screenshot) => {
+  const figure = createElement("figure", "lab-evidence-card");
+  const image = document.createElement("img");
+  image.src = screenshot.src;
+  image.alt = screenshot.alt;
+  image.loading = "lazy";
+  image.decoding = "async";
+
+  if (screenshot.width && screenshot.height) {
+    image.width = screenshot.width;
+    image.height = screenshot.height;
+  }
+
+  const caption = createElement("figcaption");
+  caption.append(
+    createElement("strong", "", screenshot.title),
+    createElement("span", "", screenshot.caption)
+  );
+
+  figure.append(image, caption);
+  return figure;
+};
+
 const renderSkills = () => {
   const skillList = document.getElementById("skill-list");
 
@@ -322,6 +397,14 @@ const renderProjects = () => {
       card.append(caseStudy);
     }
 
+    if (project.screenshots) {
+      const gallery = createElement("div", "lab-evidence-grid");
+      project.screenshots.forEach((screenshot) => {
+        gallery.append(createScreenshotFigure(screenshot));
+      });
+      card.append(gallery);
+    }
+
     if (project.preview) {
       const preview = createElement("div", "project-preview");
       preview.append(createElement("strong", "project-preview-title", project.preview.title));
@@ -372,12 +455,14 @@ const setupProjectLifecycle = () => {
   const modal = document.getElementById("project-lifecycle");
   const title = document.getElementById("lifecycle-title");
   const summary = document.getElementById("lifecycle-summary");
+  const evidenceTitle = document.getElementById("lifecycle-evidence-title");
   const evidence = document.getElementById("lifecycle-evidence");
+  const gallery = document.getElementById("lifecycle-gallery");
   const steps = document.getElementById("lifecycle-steps");
   const lifecycleButtons = document.querySelectorAll("[data-project-index]");
   const closeButtons = document.querySelectorAll("[data-close-lifecycle]");
 
-  if (!modal || !title || !summary || !evidence || !steps) {
+  if (!modal || !title || !summary || !evidenceTitle || !evidence || !gallery || !steps) {
     return;
   }
 
@@ -389,12 +474,22 @@ const setupProjectLifecycle = () => {
   const openLifecycle = (project) => {
     title.textContent = project.title;
     summary.textContent = project.summary;
+    evidenceTitle.textContent = project.evidenceTitle || "Evidence to add";
     evidence.replaceChildren();
+    gallery.replaceChildren();
     steps.replaceChildren();
 
     project.evidence.forEach((item) => {
       evidence.append(createElement("li", "", item));
     });
+
+    if (project.screenshots) {
+      const galleryGrid = createElement("div", "lifecycle-gallery-grid");
+      project.screenshots.forEach((screenshot) => {
+        galleryGrid.append(createScreenshotFigure(screenshot));
+      });
+      gallery.append(galleryGrid);
+    }
 
     project.lifecycle.forEach((item) => {
       const step = createElement("li", "lifecycle-step");
