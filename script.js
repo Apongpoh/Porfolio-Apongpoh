@@ -314,6 +314,9 @@ const createElement = (tag, className, text) => {
 
 const createScreenshotFigure = (screenshot) => {
   const figure = createElement("figure", "lab-evidence-card");
+  figure.tabIndex = 0;
+  figure.setAttribute("aria-label", `${screenshot.title}: ${screenshot.caption}`);
+
   const image = document.createElement("img");
   image.src = screenshot.src;
   image.alt = screenshot.alt;

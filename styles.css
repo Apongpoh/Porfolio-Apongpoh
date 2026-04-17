@@ -881,6 +881,7 @@ h3 {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
+  cursor: zoom-in;
 }
 
 .lab-evidence-card img {
@@ -889,6 +890,22 @@ h3 {
   object-fit: contain;
   background: var(--surface-soft);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 320ms ease, filter 320ms ease;
+}
+
+.lab-evidence-card:focus-visible {
+  outline: 3px solid var(--accent-warm);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .lab-evidence-card:hover img,
+  .lab-evidence-card:focus-visible img {
+    filter: contrast(1.05) saturate(1.04);
+    transform: scale(1.08);
+  }
 }
 
 .lab-evidence-card figcaption {
@@ -1463,5 +1480,11 @@ h3 {
     opacity: 1;
     transform: none;
     transition-delay: 0ms;
+  }
+
+  .lab-evidence-card:hover img,
+  .lab-evidence-card:focus-visible img {
+    filter: none;
+    transform: none;
   }
 }
