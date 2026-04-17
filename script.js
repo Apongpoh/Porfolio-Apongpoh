@@ -141,7 +141,7 @@ const featuredProjects = [
   {
     title: "Sisi Africa",
     summary:
-      "A practice social content app with posts, comments, responsive sections, and media-ready setup.",
+      "A practice social content app I use to discuss secure content flows, authentication boundaries, and media handling.",
     stack: ["Next.js", "MongoDB", "JWT", "AWS S3"],
     status: "Non-commercial web app",
     links: [
@@ -155,14 +155,15 @@ const featuredProjects = [
       }
     ],
     accent: "#ffd166",
+    evidenceTitle: "Security review focus",
     preview: {
-      title: "More details to add",
-      points: ["Feed screenshot", "Comment flow", "Media upload notes"]
+      title: "Security focus",
+      points: ["Auth boundaries", "Content validation", "Media handling"]
     },
     evidence: [
-      "Add one screenshot of the feed or content detail page.",
-      "Add a short note about authentication and media handling.",
-      "Keep the live demo link updated."
+      "Review how users move through posts, comments, and media-backed content without relying on screenshots.",
+      "Explain the authentication boundary, JWT handling plan, and where protected actions should be enforced.",
+      "Discuss validation, sanitization, file upload controls, and rate limiting as the security improvements to prioritize."
     ],
     lifecycle: [
       {
@@ -188,7 +189,7 @@ const featuredProjects = [
       {
         phase: "Learning Outcome",
         detail:
-          "Practiced component organization, full-stack data flow, and safer planning for content apps."
+          "Practiced component organization, full-stack data flow, and the security questions that matter in content apps."
       }
     ]
   },
@@ -204,19 +205,20 @@ const featuredProjects = [
         href: "https://github.com/Apongpoh/tierra"
       },
       {
-        label: "Demo coming soon",
-        href: "#contact"
+        label: "Live demo",
+        href: "https://tierra-wheat.vercel.app/"
       }
     ],
     accent: "#ff715b",
+    evidenceTitle: "Security review focus",
     preview: {
-      title: "More details to add",
-      points: ["Product search screenshot", "Vendor flow", "Wallet concept notes"]
+      title: "Security focus",
+      points: ["Vendor flows", "Input validation", "Wallet risk review"]
     },
     evidence: [
-      "Add a screenshot of search, product detail, or vendor dashboard.",
-      "Add a short note about security scripts and validation.",
-      "Add a demo link after deployment."
+      "Use the live demo to talk through marketplace attack surfaces instead of adding static screenshots.",
+      "Explain how product search, vendor flows, support tickets, and admin-style actions should be validated and authorized.",
+      "Discuss wallet-related risks, transaction trust boundaries, logging, and security scripts as the strongest learning areas."
     ],
     lifecycle: [
       {
@@ -242,7 +244,7 @@ const featuredProjects = [
       {
         phase: "Learning Outcome",
         detail:
-          "Practiced larger app structure, marketplace workflows, and security-aware feature planning."
+          "Practiced larger app structure, marketplace workflows, and security-aware review of higher-risk product features."
       }
     ]
   },
@@ -258,19 +260,20 @@ const featuredProjects = [
         href: "https://github.com/Apongpoh/fiorell"
       },
       {
-        label: "Demo coming soon",
-        href: "#contact"
+        label: "Live demo",
+        href: "https://fiorell.vercel.app/"
       }
     ],
     accent: "#48e08e",
+    evidenceTitle: "Security review focus",
     preview: {
-      title: "More details to add",
-      points: ["Profile screenshot", "Match flow", "Messaging notes"]
+      title: "Security focus",
+      points: ["Privacy controls", "Protected routes", "Messaging safety"]
     },
     evidence: [
-      "Add one screenshot of profile, matching, or messaging screens.",
-      "Add a short note about privacy protections and protected routes.",
-      "Add a demo link after deployment."
+      "Use the live demo to explain privacy, matching, messaging, and account-safety decisions without adding screenshots.",
+      "Discuss protected routes, password hashing, JWT sessions, input validation, and safe handling of profile data.",
+      "Explain where abuse prevention, payment boundaries, logging, and user reporting controls would fit next."
     ],
     lifecycle: [
       {
@@ -296,7 +299,7 @@ const featuredProjects = [
       {
         phase: "Learning Outcome",
         detail:
-          "Practiced a larger full-stack app with privacy, payments, user safety, and API documentation in mind."
+          "Practiced a larger full-stack app with privacy, payments, user safety, and security review in mind."
       }
     ]
   }

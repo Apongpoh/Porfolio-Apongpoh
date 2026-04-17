@@ -10,9 +10,9 @@ A polished static portfolio for Apongpoh, a cybersecurity-focused full-stack dev
 - About, skills, experience, projects, roadmap, and contact sections
 - Dynamic skills and project cards managed from `script.js`
 - Certification cards with Security+, Google Cybersecurity, and Meta credential links
-- Scalable project cards with detailed screenshots kept inside case-study modals
+- Scalable project cards with detailed notes kept inside case-study modals
 - Featured SOC case-study modal with Azure/Sentinel lab screenshots
-- Project case-study modals with evidence notes for screenshots, demos, and future security builds
+- Project case-study modals with evidence notes for demos, security reviews, and future builds
 - Staggered reveal animation, modal entrance motion, and reduced-motion support
 - Accessible focus states, skip link, reduced-motion support, and responsive layouts
 
@@ -35,7 +35,7 @@ Settings, then Pages, and set the source to GitHub Actions.
 
 - Update project data in `script.js`.
 - Update skill data in `script.js`.
-- Replace pending project demo links, screenshots, and evidence notes in `script.js`.
+- Replace pending project demo links, security notes, and evidence notes in `script.js`.
 - Replace certification links and text in `index.html`.
 - Replace downloadable certificate PDFs in `assets/`.
 - Add or replace SOC lab screenshots in `assets/test_logs/`.
