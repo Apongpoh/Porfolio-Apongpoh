@@ -43,8 +43,12 @@ const featuredProjects = [
       { label: "Validate", value: "Used KQL to confirm Linux auth activity and Windows 4625 failed logon events." }
     ],
     preview: {
-      title: "Captured lab evidence",
-      points: ["Azure resource groups and workspace", "Ubuntu syslog collection rule", "Windows failed logon KQL results"]
+      title: "Evidence in case study",
+      points: [
+        "4 Azure/Sentinel screenshots",
+        "8 setup phases from resources to KQL",
+        "Syslog and Event ID 4625 validation"
+      ]
     },
     evidenceTitle: "Lab evidence captured",
     evidence: [
@@ -400,14 +404,6 @@ const renderProjects = () => {
       card.append(caseStudy);
     }
 
-    if (project.screenshots) {
-      const gallery = createElement("div", "lab-evidence-grid");
-      project.screenshots.forEach((screenshot) => {
-        gallery.append(createScreenshotFigure(screenshot));
-      });
-      card.append(gallery);
-    }
-
     if (project.preview) {
       const preview = createElement("div", "project-preview");
       preview.append(createElement("strong", "project-preview-title", project.preview.title));
@@ -430,7 +426,7 @@ const renderProjects = () => {
     card.append(stack);
 
     const actions = createElement("div", "project-actions");
-    const lifecycleButton = createElement("button", "project-link", "View lifecycle");
+    const lifecycleButton = createElement("button", "project-link", "View case study");
     lifecycleButton.type = "button";
     lifecycleButton.setAttribute("data-project-index", String(index));
     actions.append(lifecycleButton);
